@@ -1,0 +1,3 @@
+class ListImages {
+  List listImages = [];
+}
