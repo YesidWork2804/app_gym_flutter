@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../components/colors/list_Colors.dart';
 
-Widget text_onboarding(
+Widget textOnboarding(
     {textNormal = String, textBold = String, fontSize = double}) {
   return Column(
     children: [

@@ -1,11 +1,12 @@
+import 'package:app_gym_flutter/domain/providers/OnboardingPageProvider.dart';
+import 'package:app_gym_flutter/ui/pages/onboarding/widgets/imageOnboarding.dart';
+import 'package:app_gym_flutter/ui/pages/onboarding/widgets/textOnboarding.dart';
+import 'package:app_gym_flutter/ui/widgets/customButtonWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../components/colors/list_Colors.dart';
-import '../../../domain/providers/themes/themeChange_Provider.dart';
-import '../../widgets/custom_button_widgets.dart';
-import 'widgets/image_onboarding.dart';
-import 'widgets/side_scroll_bar.dart';
-import 'widgets/text_onboarding.dart';
+import '../gender/genderPage.dart';
+import 'widgets/sideScrollBar.dart';
 
 class Onboarding_page extends StatefulWidget {
   @override
@@ -29,70 +30,72 @@ class _Onboarding_pageState extends State<Onboarding_page> {
 
   @override
   Widget build(BuildContext context) {
-    var myProvider = Provider.of<ThemeChange_Provider>(context);
+    var myProvider = Provider.of<OnboardingPageProvider>(context);
     return Scaffold(
       backgroundColor: ColorList.colors['primary'],
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            Expanded(
-              child: PageView.builder(
-                itemCount: demo_data.length,
-                controller: _pageController,
-                onPageChanged: (value) => {myProvider.update(value.toDouble())},
-                itemBuilder: (context, index) => Column(
-                  children: [
-                    image_onboarding(
-                        width: 417.0,
-                        height: 515.0,
-                        image: demo_data[index].image),
-                    const Divider(height: 33),
-                    text_onboarding(
-                        fontSize: 25.0,
-                        textBold: demo_data[index].textBold,
-                        textNormal: demo_data[index].textNormal),
-                    Divider(height: myProvider.count != 2 ? 102 : 52),
-                    myProvider.count == 2
-                        ? custom_button_widgets()
-                        : Container(),
-                    const Divider(height: 52),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        side_scroll_bar(context: context, page: 0),
-                        const Padding(padding: EdgeInsets.only(right: 10)),
-                        side_scroll_bar(context: context, page: 1),
-                        const Padding(padding: EdgeInsets.only(right: 10)),
-                        side_scroll_bar(context: context, page: 2),
-
-                        // Container(
-                        //   height: 4,
-                        //   width: myProvider.count == 0 ? 36 : 16,
-                        //   color: myProvider.count == 0
-                        //       ? ColorList.colors['secondary']
-                        //       : ColorList.colors['tertiary'],
-                        // ),
-                        // const Padding(padding: EdgeInsets.only(right: 10)),
-                        // Container(
-                        //   height: 4,
-                        //   width: myProvider.count == 1 ? 36 : 16,
-                        //   color: myProvider.count == 1
-                        //       ? ColorList.colors['secondary']
-                        //       : ColorList.colors['tertiary'],
-                        // ),
-                        // const Padding(padding: EdgeInsets.only(right: 10)),
-                        // Container(
-                        //   height: 4,
-                        //   width: myProvider.count == 2 ? 36 : 16,
-                        //   color: myProvider.count == 2
-                        //       ? ColorList.colors['secondary']
-                        //       : ColorList.colors['tertiary'],
-                        // ),
-                      ],
-                    )
-                  ],
-                ),
+            Positioned(
+              bottom: 64,
+              right: 144,
+              left: 143,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  sideScrollBar(context: context, page: 0),
+                  const Padding(padding: EdgeInsets.only(right: 10)),
+                  sideScrollBar(context: context, page: 1),
+                  const Padding(padding: EdgeInsets.only(right: 10)),
+                  sideScrollBar(context: context, page: 2),
+                ],
               ),
+            ),
+            Column(
+              children: [
+                Expanded(
+                  child: PageView.builder(
+                    itemCount: demo_data.length,
+                    controller: _pageController,
+                    onPageChanged: (value) =>
+                        {myProvider.update(value.toDouble())},
+                    itemBuilder: (context, index) => Column(
+                      children: [
+                        Stack(
+                          children: [
+                            imageOnboarding(
+                                // width: 410.0,
+                                // height: 515.0,
+                                image: demo_data[index].image),
+                          ],
+                        ),
+                        const Divider(height: 33),
+                        textOnboarding(
+                            fontSize: 25.0,
+                            textBold: demo_data[index].textBold,
+                            textNormal: demo_data[index].textNormal),
+                        const Divider(height: 52),
+                        index == 2
+                            ? customButtonWidgets(
+                                onPressed: () {
+                                  // pushReplacement
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const GenderPage()));
+                                },
+                                height: 50.0,
+                                width: 156.0,
+                                iconButton: Icons.arrow_right_outlined,
+                                textButton: 'Star Now')
+                            : Container(),
+                        const Divider(height: 52),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -103,27 +106,30 @@ class _Onboarding_pageState extends State<Onboarding_page> {
 
 class Onboard {
   late final String textNormal, textBold, image;
-  late final custom_button_widgets;
+  // late final  customButtonWidgets;
+  // customButtonWidgets myText = customButtonWidgets;
 
-  Onboard(
-      {required this.image,
-      required this.textNormal,
-      required this.textBold,
-      this.custom_button_widgets});
+  Onboard({
+    required this.image,
+    required this.textNormal,
+    required this.textBold,
+  });
 }
 
 final List<Onboard> demo_data = [
   Onboard(
-      image: 'assets/images/onboarding_1.png',
-      textNormal: 'MEET YOUR COACH',
-      textBold: 'START YOUR JOURNEY'),
+    image: 'assets/images/onboarding_4.jpg',
+    textNormal: 'MEET YOUR COACH',
+    textBold: 'START YOUR JOURNEY',
+  ),
   Onboard(
-      image: 'assets/images/onboarding_2.png',
-      textNormal: 'CREATE A WORKOUT PLAN',
-      textBold: 'TO STAY FIT'),
+    image: 'assets/images/onboarding_2.jpg',
+    textNormal: 'CREATE A WORKOUT PLAN',
+    textBold: 'TO STAY FIT',
+  ),
   Onboard(
-      image: 'assets/images/onboarding_3.png',
-      textNormal: 'ACTIONS THE',
-      textBold: 'KEY TO ALL SUCCESS',
-      custom_button_widgets: custom_button_widgets()),
+    image: 'assets/images/onboarding_1.jpg',
+    textNormal: 'ACTIONS THE',
+    textBold: 'KEY TO ALL SUCCESS',
+  ),
 ];

@@ -3,7 +3,7 @@ import 'package:app_gym_flutter/ui/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'domain/providers/themes/themeChange_Provider.dart';
+import 'domain/providers/OnboardingPageProvider.dart';
 
 /// This is a reimplementation of the default Flutter application using provider + [ChangeNotifier].
 
@@ -11,7 +11,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeChange_Provider()),
+        ChangeNotifierProvider(create: (_) => OnboardingPageProvider()),
       ],
       child: const MyApp(),
     ),

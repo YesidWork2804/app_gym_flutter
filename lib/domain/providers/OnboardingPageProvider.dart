@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 /// Mix-in [DiagnosticableTreeMixin] to have access to [debugFillProperties] for the devtool
 // ignore: prefer_mixin
-class ThemeChange_Provider with ChangeNotifier, DiagnosticableTreeMixin {
+class OnboardingPageProvider with ChangeNotifier, DiagnosticableTreeMixin {
   double _count = 0;
 
   double get count => _count;
