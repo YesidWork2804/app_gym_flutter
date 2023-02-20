@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Onboarding/onboarding_page.dart';
+import '../onboarding/onboardingPage.dart';
 
 class Splash_Page extends StatefulWidget {
   const Splash_Page({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _Splash_PageState extends State<Splash_Page> {
     await Future.delayed(const Duration(milliseconds: 1500), () {});
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Onboarding_page()));
+        context, MaterialPageRoute(builder: (context) => OnboardingPage()));
   }
 
   @override

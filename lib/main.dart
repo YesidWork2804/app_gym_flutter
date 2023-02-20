@@ -1,9 +1,11 @@
 // ignore_for_file: public_member_api_docs, lines_longer_than_80_chars
+import 'package:app_gym_flutter/ui/pages/gender/genderPage.dart';
 import 'package:app_gym_flutter/ui/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'domain/providers/OnboardingPageProvider.dart';
+import 'domain/providers/AppProvider.dart';
+import 'ui/pages/age/agePage.dart';
 
 /// This is a reimplementation of the default Flutter application using provider + [ChangeNotifier].
 
@@ -11,7 +13,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => OnboardingPageProvider()),
+        ChangeNotifierProvider(
+          create: (context) => AppProvider(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -26,7 +30,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/splash',
-      routes: {'/splash': (_) => const Splash_Page()},
+      routes: {
+        '/splash': (_) => const Splash_Page(),
+        '/gender': (_) => const GenderPage(),
+        '/age': (_) => const AgePage(),
+      },
     );
   }
 }

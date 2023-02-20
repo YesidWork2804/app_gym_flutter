@@ -1,19 +1,20 @@
-import 'package:app_gym_flutter/domain/providers/OnboardingPageProvider.dart';
+import 'package:app_gym_flutter/domain/providers/AppProvider.dart';
 import 'package:app_gym_flutter/ui/pages/onboarding/widgets/imageOnboarding.dart';
-import 'package:app_gym_flutter/ui/pages/onboarding/widgets/textOnboarding.dart';
 import 'package:app_gym_flutter/ui/widgets/customButtonWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../components/colors/list_Colors.dart';
-import '../gender/genderPage.dart';
+import '../../widgets/textApp.dart';
 import 'widgets/sideScrollBar.dart';
 
-class Onboarding_page extends StatefulWidget {
+class OnboardingPage extends StatefulWidget {
+  const OnboardingPage({super.key});
+
   @override
-  State<Onboarding_page> createState() => _Onboarding_pageState();
+  State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _Onboarding_pageState extends State<Onboarding_page> {
+class _OnboardingPageState extends State<OnboardingPage> {
   late PageController _pageController;
 
   @override
@@ -30,7 +31,8 @@ class _Onboarding_pageState extends State<Onboarding_page> {
 
   @override
   Widget build(BuildContext context) {
-    var myProvider = Provider.of<OnboardingPageProvider>(context);
+    final myProvider = Provider.of<AppProvider>(context);
+
     return Scaffold(
       backgroundColor: ColorList.colors['primary'],
       body: SafeArea(
@@ -58,7 +60,7 @@ class _Onboarding_pageState extends State<Onboarding_page> {
                     itemCount: demo_data.length,
                     controller: _pageController,
                     onPageChanged: (value) =>
-                        {myProvider.update(value.toDouble())},
+                        {myProvider.updatePageOmboardaing(value.toDouble())},
                     itemBuilder: (context, index) => Column(
                       children: [
                         Stack(
@@ -70,20 +72,30 @@ class _Onboarding_pageState extends State<Onboarding_page> {
                           ],
                         ),
                         const Divider(height: 33),
-                        textOnboarding(
-                            fontSize: 25.0,
-                            textBold: demo_data[index].textBold,
-                            textNormal: demo_data[index].textNormal),
+                        textApp(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 25.0,
+                          text: demo_data[index].textNormal,
+                          textColor: ColorList.colors['primary'],
+                        ),
+                        textApp(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 25.0,
+                          text: demo_data[index].textBold,
+                          textColor: ColorList.colors['primary'],
+                        ),
                         const Divider(height: 52),
                         index == 2
                             ? customButtonWidgets(
                                 onPressed: () {
                                   // pushReplacement
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const GenderPage()));
+                                  Navigator.pushReplacementNamed(
+                                      context, '/gender');
+                                  // Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //         builder: (context) =>
+                                  //             const GenderPage()));
                                 },
                                 height: 50.0,
                                 width: 156.0,

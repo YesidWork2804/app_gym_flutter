@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../components/colors/list_Colors.dart';
-import '../../../../domain/providers/OnboardingPageProvider.dart';
+import '../../../../domain/providers/AppProvider.dart';
 
 Widget sideScrollBar({context, page: double}) {
-  var myProvider = Provider.of<OnboardingPageProvider>(context);
+  var myProvider = Provider.of<AppProvider>(context);
 
   return Container(
     height: 4,
