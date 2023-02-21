@@ -1,15 +1,24 @@
 import 'package:app_gym_flutter/components/colors/list_Colors.dart';
 import 'package:app_gym_flutter/ui/widgets/textApp.dart';
 import 'package:flutter/material.dart';
+import 'package:numberpicker/numberpicker.dart';
 
 import '../../widgets/buttonRecoil.dart';
 import '../../widgets/customButtonWidgets.dart';
+import 'widgets/containerPickerNumber.dart';
 
-class AgePage extends StatelessWidget {
+class AgePage extends StatefulWidget {
   const AgePage({super.key});
 
   @override
+  State<AgePage> createState() => _AgePageState();
+}
+
+class _AgePageState extends State<AgePage> {
+  @override
   Widget build(BuildContext context) {
+    // int _currentValue = 1;
+
     return Scaffold(
       backgroundColor: ColorList.colors['primary'],
       body: Center(
@@ -28,10 +37,13 @@ class AgePage extends StatelessWidget {
               text: 'THIS HELPS US CREATE YOUR PERSONALIZED PLAN',
               textColor: ColorList.colors['white']),
           const Divider(
-            height: 576,
+            height: 76,
           ),
           //SPINNER
-
+          const ContainerPickerNumber(),
+          const Divider(
+            height: 115,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -45,7 +57,7 @@ class AgePage extends StatelessWidget {
                   height: 50.0,
                   iconButton: Icons.arrow_right,
                   onPressed: () {
-                    // Navigator.pushReplacementNamed(context, '/age');
+                    // Navigator.pushReplacementNamed(context, '/gender');
                   },
                   textButton: 'Next',
                   width: 120.0),

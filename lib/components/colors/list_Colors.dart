@@ -6,7 +6,7 @@ class ColorList {
     'secondary': Color.fromRGBO(208, 253, 62, 1),
     'tertiary': Color.fromRGBO(58, 58, 60, 1),
     'quaternary': Color.fromRGBO(44, 44, 46, 1),
-    'quinary': Colors.purple,
+    'quinary': Color.fromRGBO(80, 80, 80, 1),
     'white': Colors.white,
     'black': Color.fromRGBO(0, 0, 0, 1),
   };
