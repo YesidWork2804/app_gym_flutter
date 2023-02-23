@@ -37,7 +37,7 @@ class _AgePageState extends State<AgePage> {
               text: 'THIS HELPS US CREATE YOUR PERSONALIZED PLAN',
               textColor: ColorList.colors['white']),
           const Divider(
-            height: 76,
+            height: 111,
           ),
           //SPINNER
           const ContainerPickerNumber(),
@@ -48,6 +48,9 @@ class _AgePageState extends State<AgePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               buttonRecoil(
+                  fuctionButton: () {
+                    Navigator.pushReplacementNamed(context, '/gender');
+                  },
                   iconColor: ColorList.colors['white'],
                   height: 54.0,
                   width: 54.0,
@@ -57,7 +60,7 @@ class _AgePageState extends State<AgePage> {
                   height: 50.0,
                   iconButton: Icons.arrow_right,
                   onPressed: () {
-                    // Navigator.pushReplacementNamed(context, '/gender');
+                    Navigator.pushReplacementNamed(context, '/weight');
                   },
                   textButton: 'Next',
                   width: 120.0),

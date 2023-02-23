@@ -16,8 +16,8 @@ class _ContainerPickerNumber extends State<ContainerPickerNumber> {
   Widget build(BuildContext context) {
     Color _textColor = Colors.black;
     return SizedBox(
-      width: 100,
-      height: 400,
+      width: 113,
+      height: 350,
       child: Stack(
         children: [
           Container(

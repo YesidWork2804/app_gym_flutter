@@ -1,41 +1,22 @@
-import 'package:app_gym_flutter/components/colors/list_Colors.dart';
+import 'package:app_gym_flutter/ui/pages/height/widgets/containerPickerHeight.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:numberpicker/numberpicker.dart';
-import 'package:vertical_weight_slider/vertical_weight_slider.dart';
 
+import '../../../components/colors/list_Colors.dart';
 import '../../widgets/buttonRecoil.dart';
 import '../../widgets/customButtonWidgets.dart';
 import '../../widgets/textApp.dart';
-import 'widgets/myVerticalWeightSlider.dart';
 
-class WeightPage extends StatefulWidget {
-  const WeightPage({Key? key}) : super(key: key);
+class HeightPage extends StatefulWidget {
+  const HeightPage({Key? key}) : super(key: key);
 
   @override
-  State<WeightPage> createState() => _WeightPageState();
+  State<HeightPage> createState() => _HeightPageState();
 }
 
-class _WeightPageState extends State<WeightPage> {
-  late WeightSliderController _controller;
-  double _weight = 30.0;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = WeightSliderController(
-        initialWeight: _weight, minWeight: 0, interval: 0.1);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class _HeightPageState extends State<HeightPage> {
   @override
   Widget build(BuildContext context) {
-    int _pesoSeleccionado = 50; // Valor por defecto
     return Scaffold(
       backgroundColor: ColorList.colors['primary'],
       body: Center(
@@ -45,23 +26,23 @@ class _WeightPageState extends State<WeightPage> {
             textApp(
                 fontSize: 26.0,
                 fontWeight: FontWeight.w700,
-                text: 'WHAT’S YOUR WEIGHT?',
+                text: 'WHAT’S YOUR HEIGHT?',
                 textColor: ColorList.colors['white']),
             const Divider(height: 12),
             textApp(
                 fontSize: 15.0,
                 fontWeight: FontWeight.w700,
-                text: 'YOU CAN ALWAYS CHANGE THIS LATER',
+                text: 'THIS HELPS US CREATE YOUR PERSONALIZED PLAN',
                 textColor: ColorList.colors['white']),
-            const Divider(height: 122),
-            const MyVerticalWeightSlider(),
-            const Divider(height: 275),
+            const Divider(height: 111),
+            const ContainerPickerHeight(),
+            const Divider(height: 90),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 buttonRecoil(
                     fuctionButton: () {
-                      Navigator.pushReplacementNamed(context, '/age');
+                      Navigator.pushReplacementNamed(context, '/weight');
                     },
                     iconColor: ColorList.colors['white'],
                     height: 54.0,
@@ -72,7 +53,7 @@ class _WeightPageState extends State<WeightPage> {
                     height: 50.0,
                     iconButton: Icons.arrow_right,
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/height');
+                      Navigator.pushReplacementNamed(context, '/');
                     },
                     textButton: 'Next',
                     width: 120.0),

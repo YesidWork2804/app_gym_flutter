@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, lines_longer_than_80_chars
 import 'package:app_gym_flutter/ui/pages/gender/genderPage.dart';
+import 'package:app_gym_flutter/ui/pages/height/heightPage.dart';
 import 'package:app_gym_flutter/ui/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'domain/providers/AppProvider.dart';
 import 'ui/pages/age/agePage.dart';
+import 'ui/pages/weight/weightPage.dart';
 
 /// This is a reimplementation of the default Flutter application using provider + [ChangeNotifier].
 
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
         '/splash': (_) => const Splash_Page(),
         '/gender': (_) => const GenderPage(),
         '/age': (_) => const AgePage(),
+        '/weight': (_) => const WeightPage(),
+        '/height': (_) => const HeightPage(),
       },
     );
   }
