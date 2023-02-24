@@ -1,6 +1,7 @@
 import 'package:app_gym_flutter/ui/pages/height/widgets/containerPickerHeight.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:numberpicker/numberpicker.dart';
 
 import '../../../components/colors/list_Colors.dart';
 import '../../widgets/buttonRecoil.dart';
@@ -36,7 +37,7 @@ class _HeightPageState extends State<HeightPage> {
                 textColor: ColorList.colors['white']),
             const Divider(height: 111),
             const ContainerPickerHeight(),
-            const Divider(height: 90),
+            const Divider(height: 115),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -53,7 +54,7 @@ class _HeightPageState extends State<HeightPage> {
                     height: 50.0,
                     iconButton: Icons.arrow_right,
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/');
+                      Navigator.pushReplacementNamed(context, '/goal');
                     },
                     textButton: 'Next',
                     width: 120.0),

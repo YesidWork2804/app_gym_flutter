@@ -66,12 +66,6 @@ class _MyVerticalWeightSliderState extends State<MyVerticalWeightSlider> {
               _weight = value;
             });
           },
-          // indicator: Container(
-          //   height: 3.0,
-          //   width: 92.0,
-          //   alignment: Alignment.centerLeft,
-          //   color: Color.fromRGBO(208, 253, 62, 1),
-          // ),
         ),
       ],
     );

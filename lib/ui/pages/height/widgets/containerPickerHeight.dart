@@ -17,13 +17,13 @@ class CcontainerPickerHeightState extends State<ContainerPickerHeight> {
   Widget build(BuildContext context) {
     Color _textColor = Colors.black;
     return SizedBox(
-      width: 156,
+      width: 120,
       height: 350,
       child: Stack(
         children: [
-          Positioned(
-            bottom: 60,
-            right: 37,
+          const Positioned(
+            bottom: 150,
+            right: 0,
             child: Text(
               'cm',
               style: TextStyle(
@@ -33,7 +33,7 @@ class CcontainerPickerHeightState extends State<ContainerPickerHeight> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 240),
+            padding: const EdgeInsets.only(top: 150),
             child: const Divider(
               height: 2,
               thickness: 2,
@@ -41,7 +41,7 @@ class CcontainerPickerHeightState extends State<ContainerPickerHeight> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 303),
+            padding: const EdgeInsets.only(top: 203),
             child: const Divider(
               height: 2,
               thickness: 2,
@@ -52,9 +52,9 @@ class CcontainerPickerHeightState extends State<ContainerPickerHeight> {
             children: [
               NumberPicker(
                 itemCount: 7,
-                itemHeight: 78,
+                // itemHeight: 48,
                 textStyle:
-                    TextStyle(color: ColorList.colors['quinary'], fontSize: 58),
+                    TextStyle(color: ColorList.colors['quinary'], fontSize: 43),
                 value: currentIntValue,
                 minValue: 100,
                 maxValue: 230,

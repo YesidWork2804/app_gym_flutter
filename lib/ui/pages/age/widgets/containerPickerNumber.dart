@@ -21,7 +21,7 @@ class _ContainerPickerNumber extends State<ContainerPickerNumber> {
       child: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 240),
+            padding: const EdgeInsets.only(top: 150),
             child: const Divider(
               height: 2,
               thickness: 2,
@@ -29,7 +29,7 @@ class _ContainerPickerNumber extends State<ContainerPickerNumber> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 303),
+            padding: const EdgeInsets.only(top: 203),
             child: const Divider(
               height: 2,
               thickness: 2,
@@ -38,9 +38,9 @@ class _ContainerPickerNumber extends State<ContainerPickerNumber> {
           ),
           NumberPicker(
             itemCount: 7,
-            itemHeight: 78,
+            // itemHeight: 78,
             textStyle:
-                TextStyle(color: ColorList.colors['quinary'], fontSize: 43),
+                TextStyle(color: ColorList.colors['quinary'], fontSize: 49),
             value: currentIntValue,
             minValue: 0,
             maxValue: 100,
