@@ -5,22 +5,24 @@ import 'package:provider/provider.dart';
 
 import '../../../../domain/providers/AppProvider.dart';
 
-class ContainerPickerGoal extends StatefulWidget {
-  const ContainerPickerGoal({Key? key}) : super(key: key);
+class ContainerPickerActivityLevel extends StatefulWidget {
+  const ContainerPickerActivityLevel({Key? key}) : super(key: key);
 
   @override
-  State<ContainerPickerGoal> createState() => _ContainerPickerGoalState();
+  State<ContainerPickerActivityLevel> createState() =>
+      _ContainerPickerActivityLevel();
 }
 
-class _ContainerPickerGoalState extends State<ContainerPickerGoal> {
+class _ContainerPickerActivityLevel
+    extends State<ContainerPickerActivityLevel> {
   String _currentValue = 'Get fitter';
   Color colorDivider = const Color.fromRGBO(208, 253, 62, 1);
   final List<String> _options = [
-    'Gain Weight',
-    'Lose weight',
-    'Get fitter',
-    'Gain more flexible',
-    'Learn the basic',
+    'Rookie',
+    'Beginner',
+    'Intermediate',
+    'Advance',
+    'True Beast',
   ];
   final FixedExtentScrollController _scrollController =
       FixedExtentScrollController(initialItem: 0);
@@ -43,7 +45,7 @@ class _ContainerPickerGoalState extends State<ContainerPickerGoal> {
                     // width: 200,
                     child: Column(
                       children: [
-                        _options.indexOf(option) == myProvider.selectGoal
+                        _options.indexOf(option) == myProvider.selectActivity
                             ? Container(
                                 margin: EdgeInsets.only(bottom: 5),
                                 color: ColorList.colors['secondary'],
@@ -57,7 +59,7 @@ class _ContainerPickerGoalState extends State<ContainerPickerGoal> {
                               color: ColorList.colors['white'], fontSize: 24),
                           textAlign: TextAlign.center,
                         ),
-                        _options.indexOf(option) == myProvider.selectGoal
+                        _options.indexOf(option) == myProvider.selectActivity
                             ? Container(
                                 margin: EdgeInsets.only(top: 5),
                                 color: ColorList.colors['secondary'],
@@ -72,7 +74,7 @@ class _ContainerPickerGoalState extends State<ContainerPickerGoal> {
               )
               .toList(),
           onSelectedItemChanged: (index) {
-            myProvider.updateSelectGoal(index.toDouble());
+            myProvider.updateSelectActivity(index.toDouble());
             setState(() => _currentValue = _options[index]);
           }),
     );

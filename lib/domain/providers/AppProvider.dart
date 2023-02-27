@@ -20,6 +20,22 @@ class AppProvider with ChangeNotifier, DiagnosticableTreeMixin {
     notifyListeners();
   }
 
+  double _selectGoal = 0;
+  double get selectGoal => _selectGoal;
+
+  void updateSelectGoal(double selectGoal) {
+    _selectGoal = selectGoal;
+    notifyListeners();
+  }
+
+  double _selectActivity = 0;
+  double get selectActivity => _selectActivity;
+
+  void updateSelectActivity(double selectActivity) {
+    _selectActivity = selectActivity;
+    notifyListeners();
+  }
+
   /// Makes `Counter` readable inside the devtools by listing all of its properties
   // @override
   // void debugFillProperties(DiagnosticPropertiesBuilder properties) {

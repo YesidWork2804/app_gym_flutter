@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, lines_longer_than_80_chars
+import 'package:app_gym_flutter/ui/pages/activityLevel/activityLevelPage.dart';
 import 'package:app_gym_flutter/ui/pages/gender/genderPage.dart';
 import 'package:app_gym_flutter/ui/pages/goal/goalPage.dart';
 import 'package:app_gym_flutter/ui/pages/height/heightPage.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/weight': (_) => const WeightPage(),
         '/height': (_) => const HeightPage(),
         '/goal': (_) => const GoalPage(),
+        '/activtyLever': (_) => const ActivityLevelPage(),
       },
     );
   }

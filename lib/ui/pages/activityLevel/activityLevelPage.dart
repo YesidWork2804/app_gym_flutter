@@ -5,16 +5,16 @@ import '../../../components/colors/list_Colors.dart';
 import '../../widgets/buttonRecoil.dart';
 import '../../widgets/customButtonWidgets.dart';
 import '../../widgets/textApp.dart';
-import 'widgets/containerPickerGoal.dart';
+import 'widgets/containerPickerActivityLevel.dart';
 
-class GoalPage extends StatefulWidget {
-  const GoalPage({Key? key}) : super(key: key);
+class ActivityLevelPage extends StatefulWidget {
+  const ActivityLevelPage({Key? key}) : super(key: key);
 
   @override
-  State<GoalPage> createState() => GgoalPageState();
+  State<ActivityLevelPage> createState() => AactivityLevelPageState();
 }
 
-class GgoalPageState extends State<GoalPage> {
+class AactivityLevelPageState extends State<ActivityLevelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class GgoalPageState extends State<GoalPage> {
             textApp(
                 fontSize: 26.0,
                 fontWeight: FontWeight.w700,
-                text: 'WHAT’S YOUR GOAL?',
+                text: 'YOUR REGULAR PHYSICAL ACTIVITY LEVEL?',
                 textColor: ColorList.colors['white']),
             const Divider(height: 12),
             textApp(
@@ -34,15 +34,15 @@ class GgoalPageState extends State<GoalPage> {
                 fontWeight: FontWeight.w700,
                 text: 'THIS HELPS US CREATE YOUR PERSONALIZED PLAN',
                 textColor: ColorList.colors['white']),
-            const Divider(height: 156),
-            const ContainerPickerGoal(),
-            const Divider(height: 171),
+            const Divider(height: 126),
+            const ContainerPickerActivityLevel(),
+            const Divider(height: 162),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 buttonRecoil(
                     fuctionButton: () {
-                      Navigator.pushReplacementNamed(context, '/height');
+                      Navigator.pushReplacementNamed(context, '/goal');
                     },
                     iconColor: ColorList.colors['white'],
                     height: 54.0,
@@ -53,7 +53,7 @@ class GgoalPageState extends State<GoalPage> {
                     height: 50.0,
                     iconButton: Icons.arrow_right,
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/activtyLever');
+                      Navigator.pushReplacementNamed(context, '/');
                     },
                     textButton: 'Next',
                     width: 120.0),
